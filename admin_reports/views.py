@@ -210,7 +210,7 @@ class ReportList(object):
         self.can_show_all = result_count <= self.report.get_list_max_show_all()
         if not (self.show_all and self.can_show_all) and self.multi_page:
             try:
-                records = self.paginator.page(self.page_num + 1).object_list
+                records = self.paginator.page(self.page_num).object_list
             except InvalidPage:
                 raise IncorrectLookupParameters
         return records
